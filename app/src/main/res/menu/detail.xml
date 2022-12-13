@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <item
+            android:id="@+id/Add_fact"
+            android:orderInCategory="100"
+            android:title="Добавить факт"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/Update_fact"
+            android:orderInCategory="100"
+            android:title="Обновить факт"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/Delete_fact"
+            android:orderInCategory="100"
+            android:title="Удалить факт"
+            app:showAsAction="never" />
+
+</menu>

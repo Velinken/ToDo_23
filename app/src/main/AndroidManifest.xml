@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Построено на material темах; Доступ к инету - будет; стартовый .launcher.ToDoActivity -->
+<!-- никаких хитростей и фокусов - все абсолютно стандартно и тривиально -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--<uses-permission android:name="android.permission.INTERNET" /-->
+    <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /-->
+
+    <!--codelab изучить и применять систему автоматического резервного копирования Android от 6.0 -->
+    <application
+        android:name=".launcher.ToDoApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ToDo">
+
+
+        <!--NoActionBar Обязательно для включения материал appBarConfiguration -->
+         <activity
+             android:name=".launcher.ToDoActivity"
+             android:exported="true"
+             android:theme="@style/Theme.ToDo.NoActionBar">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+         </activity>
+        <!--Здесь в application один activity: .launcher.ToDoActivity и он просто грузится -->
+        <!--Может быть много activity и у каждого много интентов и еще много чего -->
+     </application>
+    <!--Здесь один application - launcher.ToDoApplication и он грузится первым, выгружается последним-->
+
+ </manifest>

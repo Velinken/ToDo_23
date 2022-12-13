@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Wrapping the layout into /layout to make it available with data binding. -->
+<!-- Обертывание макета в /layout, чтобы сделать его доступным с привязкой данных. -->
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Data to make available to the XML via data binding. In this case,
+         the whole ViewModel, so that we can access the LiveData,
+         click handlers, and state variables. -->
+    <!-- Данные, чтобы сделать доступными для XML с помощью привязки данных. В этом случае,
+    вся модель представления, так что мы можем получить доступ к живым данным,
+    щелкните обработчики и переменные состояния. -->
+    <data>
+        <import type= "android.view.MenuItem"/>
+        <variable
+            name="viewmodel"
+            type="com.app4web.asdzendo.todo.ui.todo.ToDoViewModel" />
+    </data>
+
+
+<FrameLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_list"
+        android:name=".ui.todo.ToDoFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        app:layoutManager="LinearLayoutManager"
+        tools:context=".ui.todo.ToDoFragment"
+        tools:listitem="@layout/to_do_recycler_item" />
+    <!-- app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:items="@{viewmodel.items}" /-->
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_margin="@dimen/fab_margin"
+        app:layout_anchor="@id/bottom_nav_view"
+        app:srcCompat="@drawable/ic_plus"
+        android:onClick="@{() -> viewmodel.fabClick()}"/>
+
+    <!-- Прокручиваемый вид здесь com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior-->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="?android:attr/windowBackground"
+        app:OnItemSelectedListener = "@{viewmodel::onClickBottomNavView}"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:menu="@menu/bottom_nav_menu" />
+        <!-- app:OnNavigationItemSelectedListener = "@{viewmodel::onClickBottomNavView}" deprecate-->
+</FrameLayout>
+
+</layout>

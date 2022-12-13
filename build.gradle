@@ -1,0 +1,46 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+// Файл сборки верхнего уровня, в который можно добавить параметры конфигурации,
+// общие для всех подпроектов/модулей.
+buildscript {
+    //ext.kotlin_version = "1.4.32"
+    ext.kotlin_version = "1.7.20" //"1.8.0-Beta" //"1.6.21" //'1.6.10' //'1.5.31' //1.6.0-RC
+    //ext.kotlin_version = "1.7.20" //"1.6.21" //'1.6.10' //'1.5.31' //1.6.0-RC
+   // ext.kotlin_version = '1.7.0-Beta' //1.6.0-RC
+    //ext.hilt_version = '2.40.1' //'2.39.1'
+    //ext.hilt_version = '2.40.5'
+    ext.hilt_version = "2.44.2"//"2.44" //"2.43.2" //"2.43" //'2.42' - OK  // 2.43.2
+    repositories {
+        // Основные мировые репозитории откуда все берется - maven
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        // Объявляются классы Gradle, которые нужны для сборки зависимостей
+        classpath 'com.android.tools.build:gradle:7.3.1'
+        //classpath 'com.android.tools.build:gradle:8.0.0-alpha09'
+        //classpath 'com.android.tools.build:gradle:7.1.0-beta03'
+        //classpath 'com.android.tools.build:gradle:7.0.3'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // Нужно для передачи параметров в навигации проекта
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.5.3"  // 2.5.0-beta01
+        // Нужно для внедрения зависимостей hilt
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
+    }
+}
+/*
+// https://stackoverflow.com/questions/68021770/setonnavigationitemselectedlistener-deprecated
+   allprojects {
+   gradle.projectsEvaluated {
+       tasks.withType(JavaCompile) {
+           options.compilerArgs.add("-Xlint:deprecation")
+           }
+       }
+   }
+
+
+// Задача очистки проекта !Вызывается отдельно см. слева
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+*/

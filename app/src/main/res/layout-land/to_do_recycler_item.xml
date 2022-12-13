@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="com.app4web.asdzendo.todo.ui.BindingConverters"  alias="BC"/>
+
+        <variable
+            name="fact"
+            type="com.app4web.asdzendo.todo.database.FactTable"/>
+        <variable
+            name="viewmodel"
+            type="com.app4web.asdzendo.todo.ui.todo.ToDoViewModel" />
+    </data>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:onClick="@{() -> viewmodel.onFactClicked(fact.factId)}">
+
+        <TextView
+            android:id="@+id/item_number"
+            android:layout_width="80sp"
+            android:layout_height="wrap_content"
+            android:text="@{BC.convertIntToString(fact.factId)}"
+            android:layout_margin="@dimen/text_margin"
+            android:textAppearance="?attr/textAppearanceListItem" />
+
+        <TextView
+            android:id="@+id/paemi"
+            android:layout_width="16sp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:text="@{BC.convertPaemiToString(fact.paemi)}"
+            android:textAppearance="?attr/textAppearanceListItem" />
+
+        <TextView
+            android:id="@+id/data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{BC.convertCalendarToStr(fact.data)}"
+            android:layout_margin="@dimen/text_margin"
+            android:textAppearance="?attr/textAppearanceListItem" />
+
+        <TextView
+            android:id="@+id/nameShort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:text="@{fact.nameShort}"
+            android:textAppearance="?attr/textAppearanceListItem" />
+
+        <TextView
+            android:id="@+id/rezult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:text="@{fact.rezult}"
+            android:textAppearance="?attr/textAppearanceListItem" />
+
+    </LinearLayout>
+
+</layout>

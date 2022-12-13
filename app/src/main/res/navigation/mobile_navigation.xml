@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--/**
+* NavHostFragment считывает mobile_navigation и запоминает навсегда.
+* (Мы потом много раз к нему будем обращаться, перейти куда-нибудь)
+* Первый раз он находит строчку app:startDestination="@id/todoFragment", т.е. ему сказано, что стартовым надувать
+* фрагмент с этим имемнем в этом файле.
+* Находит фрагмент с этим именем todoFragment и дает ему команду надуваться сюда:
+* - находит файл kt этого фрагмента com.app4web.asdzendo.todo.ui.todo.ToDoFragment
+* - стартует этот файл ToDoFragment.kt
+* - передает управление этому файлу, а я пошел и больше не нужен, но буду за спиной
+* А мы переходим к ToDoFragment.kt и начинаем с ним рисовать картину в уже подготовленной раме
+*/ -->
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/todoFragment">
+    <!--Здесь указан какой фрагмент называть стартовым, т.е. todoFragment см ниже-->
+
+    <!--Это описание фрагмента для таблички RecyclerView раздувается com.app4web.asdzendo.todo.ui.todo.ToDoFragment.kt-->
+    <fragment
+        android:id="@+id/todoFragment"
+        android:name="com.app4web.asdzendo.todo.ui.todo.ToDoFragment"
+        android:label="ToDo"
+        tools:layout="@layout/to_do_recycler_list" >
+        <!--Это возможный путь перехода осуществляется NavHostFragment по команде ToDoFragmentDirections.actionTodoFragmentToFactDetailFragment-->
+        <action
+            android:id="@+id/action_todoFragment_to_factDetailFragment"
+            app:destination="@id/factDetailFragment" />
+        <!--Здесь указан на какой фрагмент надо перейти, т.е. factDetailFragment см ниже-->
+    </fragment>
+
+    <!--Это описание фрагмента для формы detail раздувается com.app4web.asdzendo.todo.ui.detail.FactDetailFragment.kt-->
+    <fragment
+        android:id="@+id/factDetailFragment"
+        android:name="com.app4web.asdzendo.todo.ui.detail.FactDetailFragment"
+        android:label="FactDetailFragment"
+        tools:layout="@layout/fact_detail_fragment">
+
+        <!--Здесь указано, что при вызове этого фрагмента ему надо передавать argument factID Type="integer"-->
+        <argument
+            android:name="factID"
+            android:defaultValue="0"
+            app:argType="integer" />
+
+        <!--Здесь указано, что при вызове этого фрагмента ему надо передавать argument paemi Type=PAEMI (enum)-->
+        <argument
+            android:name="paemi"
+            android:defaultValue="N"
+            app:argType="com.app4web.asdzendo.todo.launcher.PAEMI" />
+
+        <!--Выяснено, что этот action не используется сейчас и его можно удалить, используется backup-->
+        <!--Это возможный путь перехода осуществляется NavHostFragment по команде ToDoFragmentDirections.ActionFactDetailFragmentToToDoFragment-->
+        <!--action
+            android:id="@+id/action_factDetailFragment_to_todoFragment"
+            app:destination="@id/todoFragment" /-->
+        <!--Здесь указан на какой фрагмент надо перейти, т.е. todoFragment см выше-->
+
+    </fragment>
+
+</navigation>

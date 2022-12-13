@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" >
+    </item>
+    <item
+        android:id="@+id/action_reboot"
+        android:orderInCategory="100"
+        android:title="Перегрузить"
+        app:showAsAction="never" />
+
+
+    <item
+        android:id="@+id/main_action_base"
+        android:orderInCategory="100"
+        android:title="Где база данных"
+        app:showAsAction="never" >
+    <menu>
+        <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/main_action_base_in_memory"
+            android:orderInCategory="100"
+            android:title="База в памяти"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/main_action_base_on_disk"
+            android:orderInCategory="100"
+            android:title="База на диске"
+            app:showAsAction="never" />
+        </group>
+    </menu>
+    </item>
+    <item
+        android:id="@+id/main_action_constfact"
+        android:orderInCategory="100"
+        android:title="Размер Пачки"
+        app:showAsAction="never">
+        <menu>
+        <group android:checkableBehavior="single">
+            <item
+                android:id="@+id/main_action_constfact_1"
+                android:orderInCategory="100"
+                android:title="Размер Пачки 8"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/main_action_constfact_10"
+                android:orderInCategory="100"
+                android:title="Размер Пачки 80"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/main_action_constfact_100"
+                android:orderInCategory="100"
+                android:checked="true"
+                android:title="Размер Пачки 800"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/main_action_constfact_1000"
+                android:orderInCategory="100"
+                android:title="Размер Пачки 8000"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/main_action_constfact_10_000"
+                android:orderInCategory="100"
+                android:title="Размер Пачки 80 тыс"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/main_action_constfact_100_000"
+                android:orderInCategory="100"
+                android:title="Размер Пачки 800 тыс"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/main_action_constfact_1000_000"
+                android:orderInCategory="100"
+                android:title="Размер Пачки 8 млн"
+                app:showAsAction="never" />
+        </group>
+        </menu>
+    </item>
+
+</menu>
