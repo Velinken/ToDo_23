@@ -1,8 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 // Файл сборки верхнего уровня, в который можно добавить параметры конфигурации,
 // общие для всех подпроектов/модулей.
-//ext.hilt_version = "2.44.2"
-// 19.01.2023 for ToDo23
+// 20.01.2023 for ToDo23
 plugins {
     // Объявляются классы Gradle, которые нужны для сборки зависимостей
     id 'com.android.application' version '7.4.0' apply false
@@ -14,7 +13,3 @@ plugins {
     id 'com.google.dagger.hilt.android'  version '2.44.2' apply false
 }
 
-// Задача очистки проекта !Вызывается отдельно см. слева
-//tasks.register('clean') {
-//    delete rootProject.buildDir
-//}
