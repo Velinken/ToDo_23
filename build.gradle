@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 // Файл сборки верхнего уровня, в который можно добавить параметры конфигурации,
 // общие для всех подпроектов/модулей.
-// 20.01.2023 for ToDo23
+// 25.01.2023 for ToDo23
 plugins {
     // Объявляются классы Gradle, которые нужны для сборки зависимостей
     id 'com.android.application' version '7.4.0' apply false
